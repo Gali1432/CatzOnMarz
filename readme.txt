@@ -8,13 +8,14 @@ This project demonstrates how to set up a basic Node.js backend server using Exp
 
 1. **Clone Repository**: Clone this repository to your local machine.
 
-2. **Install Dependencies**: Navigate to the `backend` directory and run the following commands to install dependencies:
+2. **Install Dependencies**: Navigate to the root directory and run the following commands to install dependencies:
    ```
    npm install
    npm install Express
    npm install cors
    npm install bootstrap
    npm install mongodb
+   npm install fullcalendar
    ```
 
 3. **Start Server**: Run the following command to start the backend server:
