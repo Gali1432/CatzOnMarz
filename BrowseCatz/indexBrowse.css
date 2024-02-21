@@ -25,3 +25,38 @@
   p {
     color: #5c4033; /* Dark Brown */
   }
+
+  /* Cat Profiles */
+.cat-profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
+
+.welcome-heading h1 {
+  color: #4d3319; /* Brown */
+}
+
+.welcome-heading p {
+  color: #5c4033; /* Dark Brown */
+}
+
+
+.welcome-heading {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+}
+
+.cat-profile {
+  background-color: #fff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  padding: 20px;
+  margin-bottom: 30px;
+}
