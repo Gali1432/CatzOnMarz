@@ -30,14 +30,22 @@ app.get('/appointment', (req, res) => {
     res.sendFile(getFilePath("Appointment/appointment.html"));
 })
 
+app.get('/reserve', (req, res) => {
+    res.sendFile(getFilePath("Appointment/reservation.html"));
+})
+
 //routes that will be used to get information from the database
 const catRouting = require('./Routes/cat.js'); // Correcting the path
 app.use('/catsonmarz/cat', catRouting);
+
+const eventRouting = require('./Routes/event.js');
+app.use('/catsonmarz/event', eventRouting);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+//helper method for routes
 function getFilePath(relativePath){
     return path.resolve(process.cwd(), relativePath);
 }
