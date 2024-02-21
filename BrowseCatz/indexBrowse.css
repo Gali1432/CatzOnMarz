@@ -53,10 +53,33 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
+
+
 .cat-profile {
-  background-color: #fff; /* White background */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  background-color: #f4f4f4; /* Light Gray */
   padding: 20px;
-  margin-bottom: 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a subtle hover effect to the cat profiles */
+.cat-profile:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.adopt-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50; 
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.adopt-button:hover {
+  background-color: #45a049; /* Darker Green on hover */
 }
