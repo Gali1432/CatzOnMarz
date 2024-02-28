@@ -8,7 +8,8 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open indexBrowse.html",
-            "file": "/Users/naeomei/Documents/GitHub/CatzOnMarz/BrowseCatz/indexBrowse.html"
+            "file": "/Users/naeomei/Documents/GitHub/CatzOnMarz/UserAuth/Register.html"
+
         }
     ]
 }
