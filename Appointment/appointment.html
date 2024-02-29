@@ -72,9 +72,34 @@
     <h2 class="title">Create an Appointment</h2>
     <h4>Available Times</h4>
     <div id='calendar'></div>
-    <a id="reservation" href="/reserve">Create a Reservation</a>
+    <button id="reservation" onclick="">Create a Reservation</button>
 </div>
 
+<!-- helper script -->
+<script>
+    window.onload = getEvents();
+    function getEvents(){
+        const apiURL = "http://localhost:3000/catsonmarz/event/";
+        fetch(apiURL, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => {
+                if(!response.ok){
+                    console.log("Something went wrong when getting events")
+                }
+                return response.json();
+        })
+            .then(data => {
+                console.log(data);
+        })
+            .catch(error =>{
+                console.error("Fetch error: ", error);
+        });
+    }
+</script>
 <!-- bootstrap js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
