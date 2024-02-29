@@ -1,5 +1,5 @@
 //File for any logic involving the database
-const db = require('./mongoDB.js');
+const db = require("./mongoDB.js")
 
 /*
 Sample Event Schema 
@@ -12,12 +12,15 @@ Sample Event Schema
 
 //if this function is given a number it will search for the event with the corresponding id
 async function getEvent(eventData) { 
+    console.log("Into getEvent()\nEvent Data: " + eventData);
     var event = await db.interface("get", "Event", { id: eventData });
     return event;
 }
 
 async function getEvents(){
+    console.log("into getEvents()");
     var events = await db.interface("get", "Event", "all");
+    console.log("Events: " + events);
     return events;
 }
 

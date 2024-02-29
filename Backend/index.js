@@ -7,7 +7,8 @@ const path = require('path');
 
 app.use(express.json());
 app.use(cors({
-    allowedHeaders: "https://**"
+    origin: "http://localhost:3000",
+    allowedHeaders: "http://**"
 }));
 
 app.get('/', (req, res) => {

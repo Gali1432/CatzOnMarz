@@ -16,11 +16,13 @@ const getEventWithId = async (req, res) => { // requires id:[Number]
 }
 
 const getEvents = async (req, res) => {
+    console.log("into getEvents()");
     database.getEvents()
         .then((events) => {
             res.send(events);
         })
         .catch((err) => {
+            console.log(err);
             res.status(400).send(err);
         });
 }
