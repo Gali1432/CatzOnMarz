@@ -13,8 +13,8 @@
     <!--3rd Party Calendar API (fullcalendar.io)-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'timeGridWeek',
             height: 500,
             allDaySlot: false,
@@ -26,7 +26,7 @@
         });
         calendar.setOption('aspectRatio', 0.5);
         calendar.render();
-        });
+    });
     </script>
 </head>
 <!-- 
@@ -72,12 +72,11 @@
     <h2 class="title">Create an Appointment</h2>
     <h4>Available Times</h4>
     <div id='calendar'></div>
-    <button id="reservation" onclick="">Create a Reservation</button>
+    <a id="reservation" href="/reserve">Create a Reservation</a>
 </div>
 
 <!-- helper script -->
 <script>
-    window.onload = getEvents();
     function getEvents(){
         const apiURL = "http://localhost:3000/catsonmarz/event/";
         fetch(apiURL, {

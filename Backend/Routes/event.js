@@ -27,7 +27,42 @@ const getEvents = async (req, res) => {
         });
 }
 
+const postEvent = async (req, res) => { //needs title, start, and end date
+    console.log("into post event");
+    try {
+        await database.addEvent(req.body.eventData);
+        res.sendStatus(200); // Send response after event is successfully added
+    } catch (err) {
+        console.error(err);
+        res.sendStatus(400).send(err); // Send response in case of error
+    }
+}
+
+const patchEvent = async (req, res) => { //needs the id of the event being updated along with full event data 
+    database.updateEvent(req.body.eventId, req.body.eventData)
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            res.sendStatus(400).send(err);
+        })
+}
+
+const deleteEvent = async (req, res) => { //needs id of the event being deleted
+    database.deleteEvent(req.body.eventId)
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            res.sendStatus(400).send(err);
+        })
+}
+
 //declare routes here
 router.get('/', getEvents)
 router.get('/id', getEventWithId)
+router.post('/', postEvent)
+router.patch('/', patchEvent)
+router.delete('/', deleteEvent)
+
 module.exports = router;

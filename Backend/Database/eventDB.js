@@ -24,6 +24,24 @@ async function getEvents(){
     return events;
 }
 
+async function addEvent(eventData){ // needs a start, end, and title
+    console.log("into create Event" + "\nEventData: " + eventData);
+    await db.interface("post", "Event", eventData);
+    return {status: 200, start: eventData.start}
+}
+
+async function updateEvent(eventId, eventData){ // Event data needs an ID
+    eventData.id = eventId; //error checking 
+    var event = await getEvent(eventData);
+    event = event[0];
+    return await db.interface("patch", "Event", [event, eventData]);
+}
+
+async function deleteEvent(eventId){
+    await db.interface("delete", "Event", {id: eventId});
+    return 200;
+}
+
 module.exports = {
-    getEvent, getEvents
+    getEvent, getEvents, addEvent, updateEvent, deleteEvent
 }

@@ -51,9 +51,21 @@
 <!-- page content -->
 <div class ="page-content">
 <button onclick="getEvents()">Get events!</button>
+<h4 id="getOutput"></h4>
+<form id="createReservationForm" action="/catsonmarz/event/" method="post">
+    <h2>Create a Reservation!</h2>
+    <input id="title" placeholder="Title" type="text">
+    <input id="date" placeholder="Date YYYY-MM-DD" type="text">
+    <input id="time" placeholder="Time (24hr) HH:MM:SS" type="text">
+    <h4 id="postOutput"></h4>
+    <button type="submit" onclick="createEvent(event)">Create Event</button>
+</form>
+
 <script>
+    const apiURL = "http://localhost:3000/catsonmarz/event/";
+
     function getEvents(){
-        const apiURL = "http://localhost:3000/catsonmarz/event/";
+        const textOutput = document.getElementById("getOutput");
         fetch(apiURL, {
             method: 'GET',
             headers: {
@@ -68,11 +80,85 @@
         })
             .then(data => {
                 console.log(data);
+                textOutput.textContent = JSON.stringify(data);
         })
             .catch(error =>{
                 console.error("Fetch error: ", error);
         });
     }
+
+    function createEvent(event){
+        event.preventDefault();
+        console.log("into createEvent");
+        const eventTitle = document.getElementById("title").value;
+        const eventDate = document.getElementById("date").value;
+        const eventTime = document.getElementById("time").value;
+        const textOutput = document.getElementById("postOutput");
+        if(validateDateTime(eventDate, eventTime) && eventTitle){
+            var date = new Date(eventDate + 'T' + eventTime);
+            var endDate = new Date(startDate.getTime() + (60 * 60 * 1000)); //One hour ahead
+            const eventData = {
+                title: eventTitle,
+                start: date,
+                end: endDate
+            }
+            console.log(eventData);
+            fetch(apiURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(eventData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.success) {
+                        console.log("Event Created");
+                        textOutput.textContent = "Event created successfully!"
+                    } else {
+                        console.log("Event Creation Failed");
+                        textOutput.textContent = "Event creation failed";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error: ", error);
+                });
+        } else {
+            textOutput.textContent = "Your event date or time formatting is incorrect!"
+            return;
+        }
+    }
+
+    //#region helper functions
+    // Helper function to validate time format (HH:MM:SS)
+    function validateTimeFormat(time) {
+        const regex = /^(?:[01]\d|2[0-3]):(?:[0-5]\d):(?:[0-5]\d)$/;
+        return regex.test(time);
+    }
+
+    // Helper function to validate date range (year <= 2025, month <= 12, day <= 31)
+    function validateDateRange(date) {
+        const [year, month, day] = date.split('-').map(Number);
+        return year <= 2025 && month <= 12 && day <= 31;
+    }
+
+    // Helper function to validate time range (hour <= 24, minute <= 59, second <= 59)
+    function validateTimeRange(time) {
+        const [hour, minute, second] = time.split(':').map(Number);
+        return hour <= 24 && minute <= 59 && second <= 59;
+    }
+
+    // Main validation function
+    function validateDateTime(date, time) {
+        const validDateFormat = validateDateFormat(date);
+        const validTimeFormat = validateTimeFormat(time);
+        const validDateRange = validDateFormat && validateDateRange(date);
+        const validTimeRange = validTimeFormat && validateTimeRange(time);
+
+        return validDateFormat && validTimeFormat && validDateRange && validTimeRange;
+    }
+    //#endregion
 </script>
 </div>
 
