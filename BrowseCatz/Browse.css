@@ -1,5 +1,5 @@
 html{
-  font-family: 'Candara', sans-serif;
+  font-family: 'Ariel', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -11,8 +11,10 @@ html{
 .search-container{
   display: flex;
   justify-content: center;
-  margin: 20px 0;
-
+  margin: 20px 300px;
+}
+.btn-primary {
+  width: 70%;  
 }
 img {
   border-radius: 10%;
@@ -38,12 +40,14 @@ p{
   align-items: center; 
 }
 .cat-info-block{
-  background-color: #0d65222b;
+  background-color: #cae9ff81;
   border-radius: 10px;
-  border: 1px solid #004f2d;
+  border: 1px solid #1b4965;
   padding: 18px 25px;
-  margin: 10px 0px;
+  margin: 10px 0px ;
   font-size: 18px;
+  margin: 10px 0; 
+  width: 70%;
 } 
 .lede {
   font-size: 16px;
@@ -51,10 +55,10 @@ p{
 }
 .page-title {
   font-size: 42px;
-  color: #ef476f;
+  color: #9e0059;
 }
 .single-image-slider .slide img {
-  height: 300px; 
+  height: 700px; 
   object-fit: cover; 
 }
 .cat-grid {
@@ -77,15 +81,24 @@ p{
   color: inherit; 
 }
 .navbar {
-  background-color: #007bff; 
+  height: 80px; 
+  background-color: #fb6f92;
+  padding: 0 20px; 
+  color: #C5C9E8; 
+}
+.navbar-nav .nav-link {
+  margin-right: 20px; /* Increase the margin between the links */
 }
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: #fff; 
+  color: #fff;
+  font-size: 18px; /* Increase the font size of the links */
+  padding: 15px 0; /* Add padding to the links */
 }
 .navbar-brand:hover,
 .navbar-nav .nav-link:hover {
   color: #fff;
+  background-color: transparent; /* Remove background color on hover */
 }
 .cat-info-block__seperator {
   border-right: 1px solid #fff;
@@ -96,12 +109,12 @@ p{
 .cat-aside {
   width: 50%; 
   box-sizing: border-box; 
+  margin-left: 110px;
+
 }
 .single-image-slider {
-  width: 50%; 
-}
-.cat-info-block {
-  margin: 10px 0; 
+  width: 80%; 
+  margin-left: 110px;
 }
 .text-content {
   flex: 1;
@@ -110,16 +123,16 @@ p{
   flex: 1;
 }
 .cat img {
-  width: 200px; /* Adjust the width as needed */
-  height: 200px; /* Adjust the height as needed */
-  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  width: 200px; 
+  height: 200px; 
+  object-fit: cover; 
 }
 .description {
-  flex: 1; /* Take remaining space */
+  flex: 1; 
 }
 a {
   text-decoration: none;
-  color: black;
+  color: #571089; 
 } 
 .cat-info {
   text-align: center; 
@@ -132,10 +145,4 @@ a {
   .cat {
       width: 50%; 
   }
-}
-@font-face {
-  font-family: 'Candara';
-  src: url('path/to/candara.woff2') format('woff2'), /* Modern Browsers */
-       url('path/to/candara.woff') format('woff'),   /* Modern Browsers */
-       url('path/to/candara.ttf') format('truetype'); /* Legacy Browsers */
 }
