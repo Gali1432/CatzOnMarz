@@ -88,4 +88,63 @@ h1 {
   p {
     color: #5c4033; /* Dark Brown */
   }
+
+  .category-text {
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+
+  .add-to-cart {
+    background-color: transparent;
+    border: 1px solid #007bff;
+    color: #007bff;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 150px;
+    height: 50px; /* Fixed height for all buttons */
+}
+
+.add-to-cart:hover {
+    background-color: black;
+    color: #fff;
+}
+
+.checkout-btn {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+.menu-list {
+    list-style: none;
+    padding-left: 0;
+    font-size: 24px;
+}
+
+/* Increased font size for <p> elements */
+.center p {
+    font-size: 24px;
+}
+
+/* Adjusted padding for uniform button size */
+.menu-list .btn {
+    padding: 10px 20px;
+}
+
   
