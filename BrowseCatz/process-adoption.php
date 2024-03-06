@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phoneNumber = $_POST["phoneNumber"];
     $additionalInfo = $_POST["additionalInfo"];
 
-    // Connect to MongoDB whats our database name ?
+    // Connect to database
     $mongoClient = new MongoDB\Client("mongodb://localhost:27017");
     $db = $mongoClient->selectDatabase('blah_database_name');
     $collection = $db->selectCollection('adoption_submissions');

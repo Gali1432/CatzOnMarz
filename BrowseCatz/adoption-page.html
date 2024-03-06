@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="adoption-page.css"> <!-- Link to your stylesheet if you have one -->
+    <link rel="stylesheet" href="adoption-page.css">
     <title>Adoption Page</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <p>Complete the form below to start the adoption process.</p>
 
     <!-- Adoption Form -->
-    <form action="process-adoption.php" method="post">
+    <form id="adoption-form" action="process-adoption.php" method="post">
       <!-- Cat Name -->
       <label for="catName">Cat's Name:</label>
       <input type="text" id="catName" name="catName" required>
@@ -44,7 +44,17 @@
       <!-- Submit Button -->
       <input type="submit" value="Submit">
     </form>
-    <!-- End of Adoption Form -->
+
+    <script>
+      // script for displaying the pop-up message
+      document.getElementById("adoption-form").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevents the default form submission
+          alert("Thank You for submitting a form! We'll contact you shortly with more information!");
+          window.location.href = "../BrowseCatz/indexBrowse.html"; // Redirect to indexBrowse.html after the alert
+      });
+  </script>
+
+
 
   </div>
 
