@@ -35,6 +35,14 @@ app.get('/reserve', (req, res) => {
     res.sendFile(getFilePath("Appointment/reservation.html"));
 })
 
+app.get('/order', (req, res) => {
+    res.sendFile(getFilePath("Cart/indexCart.html"));
+})
+
+app.get('/cart', (req, res) => {
+    res.sendFile(getFilePath("Cart/indexCart.html"));
+})
+
 //routes that will be used to get information from the database
 const catRouting = require('./Routes/cat.js'); // Correcting the path
 app.use('/catsonmarz/cat', catRouting);
