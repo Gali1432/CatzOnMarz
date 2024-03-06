@@ -1,15 +1,190 @@
-<!-- cart.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./cart.css" rel="stylesheet">
+    <title>View Cart</title>
 </head>
 <body>
-    <h1>
-        Cart
-    </h1>
-  
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Catz on Marz</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Browse Catz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../OrderFood/indexFood.html">Order Food</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="../Cart/indexCart.html">Cart</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <h1>View Your Cart!</h1>
+    
+ 
+    <div id="cart-items"></div>
+
+
+    <div id="total-container"></div>
+
+
+    <button class="Check-out" id="checkout-button">Check Out</button>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Checkout</h2>
+    
+            <form id="payment-form">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="card-number">Card Number:</label><br>
+                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" required><br><br>
+
+                <label for="expiry">Expiry (MM/YY):</label><br>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/([0-9]{2})" required><br><br>
+
+                <label for="cvv">CVV:</label><br>
+                <input type="text" id="cvv" name="cvv" placeholder="123" pattern="[0-9]{3}" required><br><br>
+
+                <label for="zip">ZIP Code:</label><br>
+                <input type="text" id="zip" name="zip" placeholder="12345" pattern="[0-9]{5}" required><br><br>
+
+                <button type="submit">Submit Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const orders = [
+            { name: "Item 1", image: "item1.jpg" },
+            { name: "Item 2", image: "item2.jpg" },
+            { name: "Item 3", image: "item3.jpg" },
+            { name: "Item 4", image: "item4.jpg" },
+            { name: "Item 5", image: "item5.jpg" }
+        ];
+
+        function populateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalContainer = document.getElementById('total-container');
+            const pricePerItem = 6.95; 
+
+            let selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+
+            if (selectedItems.length === 0) {
+                cartItemsContainer.textContent = 'Your cart is empty';
+                totalContainer.textContent = '';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = '';
+            totalContainer.innerHTML = '';
+
+            selectedItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.classList.add('item');
+
+                const itemName = document.createElement('span');
+                itemName.textContent = item.name;
+
+                const itemQuantity = document.createElement('span');
+                itemQuantity.textContent = ` (${item.quantity})`; 
+                itemQuantity.classList.add('item-quantity');
+
+                const decreaseButton = document.createElement('span');
+                decreaseButton.textContent = '-';
+                decreaseButton.classList.add('quantity-button');
+                decreaseButton.addEventListener('click', function(event) {
+                    event.stopPropagation(); 
+                    if (item.quantity > 1) {
+                        item.quantity--; 
+                        localStorage.setItem('selectedItems', JSON.stringify(selectedItems)); 
+                        populateCart(); 
+                    }
+                });
+
+                const increaseButton = document.createElement('span');
+                increaseButton.textContent = '+';
+                increaseButton.classList.add('quantity-button');
+                increaseButton.addEventListener('click', function(event) {
+                    event.stopPropagation(); 
+                    item.quantity++; 
+                    localStorage.setItem('selectedItems', JSON.stringify(selectedItems)); 
+                    populateCart(); 
+                });
+
+                listItem.appendChild(itemName);
+                listItem.appendChild(itemQuantity);
+                listItem.appendChild(decreaseButton);
+                listItem.appendChild(increaseButton);
+                
+                cartItemsContainer.appendChild(listItem);
+            });
+
+            const totalQuantity = selectedItems.reduce((total, item) => total + item.quantity, 0);
+            totalContainer.textContent = `Total Items: ${totalQuantity}`;
+
+            const totalPrice = totalQuantity * pricePerItem;
+            totalContainer.insertAdjacentHTML('beforeend', `<div>Total Price: $${totalPrice.toFixed(2)}</div>`);
+        }
+
+        window.onload = function() {
+            localStorage.removeItem('selectedItems');
+        };
+
+        populateCart();
+
+     
+        var modal = document.getElementById('checkout-modal');
+
+      
+        var checkoutButton = document.getElementById("checkout-button");
+
+   
+        var closeSpan = document.getElementsByClassName("close")[0];
+
+       
+        checkoutButton.onclick = function() {
+            modal.style.display = "block";
+        }
+
+   
+        closeSpan.onclick = function() {
+            modal.style.display = "none";
+        }
+
+      
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        var paymentForm = document.getElementById("payment-form");
+        paymentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Payment submitted!");
+            modal.style.display = "none"; 
+        });
+    </script>
 </body>
 </html>
