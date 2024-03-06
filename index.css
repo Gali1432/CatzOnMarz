@@ -28,8 +28,8 @@ img {
 } 
 p{
   text-align: center;
-  font-size: 15px;
-  color: #342e37;
+  font-size: 20px;
+  color: #5c4033;
 }
 h1{
   text-align: center;
@@ -62,10 +62,4 @@ h1{
 }
 .navbar-brand-image{
   width: 100px;
-}
-.cat-main,
-.cat-aside {
-  width: 50%; 
-  box-sizing: border-box; 
-  margin-left: 110px;
 }
