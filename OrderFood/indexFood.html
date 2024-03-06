@@ -1,16 +1,160 @@
-<!-- order-food.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./indexOrderFood.css" rel="stylesheet">
     <title>Order Food</title>
-
 </head>
 <body>
-    <h1>
-        Order Food
-    </h1>
- 
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Catz on Marz</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Browse Catz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="../OrderFood/indexFood.html">Order Food</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Cart/indexCart.html">Cart</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      
+    <h1>Order Food Here!</h1>
+    <center>
+      <div class="center">
+        <p>What is better than just spending time with our catz?</p>
+        <p>Being able to spend time with our catz and enjoying some delicious drinks and pastries!</p> 
+        <p>Make sure to confirm your order 10 minutes upon arrival so we can have it ready for you!</p>
+        <span>🐈</span>
+      </div>
+    </center>
+   
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <center>
+                  <span>☕</span>
+                  <p class="category-text">Specialty Drinks</p>
+                    <ul class="menu-list">
+                        <li>
+                            Catpuccino..............................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Catpuccino">Add to Cart</button>
+                        </li>
+                        <li>
+                            Kitty Chai..............................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Kitty Chai">Add to Cart</button>
+                        </li>
+                        <li>
+                            Feline Frappe...........................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Feline Frappe">Add to Cart</button>
+                        </li>
+                        <li>
+                            Kitten Milk.............................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Kitten Milk">Add to Cart</button>
+                        </li>
+                        <li>
+                            Purrfect Punch..........................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Purrfect Punch">Add to Cart</button>
+                        </li>
+                    </ul>
+                </center>
+            </div>
+            <div class="col-sm">
+                <center>
+                    <span>⚡</span>
+                    <p class="category-text">Energizer Drinks</p>
+                    <ul class="menu-list">
+                        <li>
+                            Meow Mix Mocktail.......................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Meow Mix Mocktail">Add to Cart</button>
+                        </li>
+                        <li>
+                            CatNip Nectar...........................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="CatNip Nectar">Add to Cart</button>
+                        </li>
+                        <li>
+                            Pawsitively Peach.......................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Pawsitively Peach">Add to Cart</button>
+                        </li>
+                        <li>
+                            Meowtini................................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Meowtini">Add to Cart</button>
+                        </li>
+                        <li>
+                            Kitty Colada Feline Fizz................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Kitty Colada Feline Fizz">Add to Cart</button>
+                        </li>
+                    </ul>
+                </center>
+            </div>
+            <div class="col-sm">
+                <center>
+                    <span>🍰</span>
+                    <p class="category-text">Pastries</p>
+                    <ul class="menu-list">
+                        <li>
+                            Meowcarons..............................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Meowcarons">Add to Cart</button>
+                        </li>
+                        <li>
+                            Kitty Croissants........................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Kitty Croissants">Add to Cart</button>
+                        </li>
+                        <li>
+                            Claw-some Cookies.......................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Claw-some Cookies">Add to Cart</button>
+                        </li>
+                        <li>
+                            Whisker Waffles.........................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Whisker Waffles">Add to Cart</button>
+                        </li>
+                        <li>
+                            Purrfect Pancakes.......................$6.95
+                            <button class="btn btn-primary add-to-cart" data-item="Purrfect Pancakes">Add to Cart</button>
+                        </li> 
+                    </ul>
+                </center>
+            </div>
+        </div>
+    </div>
+    <center>
+        <a href="../Cart/indexCart.html" class="btn btn-success checkout-btn">Go to Cart</a>
+    </center>
+    
+    <script>
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+            const itemName = this.dataset.item;
+            let selectedItems = JSON.parse(localStorage.getItem('selectedItems')) || [];
+            const existingItemIndex = selectedItems.findIndex(item => item.name === itemName);
+            if (existingItemIndex !== -1) {
+                selectedItems[existingItemIndex].quantity++;
+            } else {
+                selectedItems.push({ name: itemName, quantity: 1 });
+            }
+            
+            localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+        });
+        });
+    </script>
 </body>
 </html>
