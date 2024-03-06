@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mittens - Cat Adoption</title>
+    <link href="Browse.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="../catPics/space.png" alt="Space" href="#" class="navbar-brand-image">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Browse Catz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../OrderFood/indexFood.html">Order Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Cart/indexCart.html">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../CatGallery/indexGallery.html">Cat Gallery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="cat-grid">
+        <div class="cat-main">
+            <div class="slider-and-text">
+                <div class="single-image-slider">
+                    <div class="slide">
+                        <img src="../catPics/mittens1.jpg" alt="Mittens">
+                    </div>
+                    <div class="slide">
+                        <img src="../catPics/mittens2.jpg" alt="Mittens">
+                    </div>
+                    <div class="slide">
+                        <img src="../catPics/mittens3.jpg" alt="Mittens">
+                    </div>
+                </div>
+                <div class="text-content">
+                    <div class="space-top--half">
+                        <h1 class="page-title page-title--small">Mittens</h1>
+                    </div>
+                    <div class="lede cat-body">
+                        <p>
+                            Mittens is a lovely 2-year-old cat with a charming personality. With her fluffy fur and affectionate nature, Mittens is sure to steal your heart. She enjoys spending time with people, cuddling up on laps, and playing with toys. Mittens is a delightful companion who will bring joy and warmth to any home.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="cat-aside">
+            <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Back to the Kitties</a>
+            <div class="cat-info-block cat-info-block--flex">
+                <span class="cat-info-block__title cat-info-block__seperator">
+                    <strong>Age:</strong> 2 years</span>
+                <span class="cat-info-block__title">
+                    <strong>Gender:</strong> Female</span>
+            </div>
+            <div class="cat-info-block cat-info-block--flex">
+                <strong>Breed:</strong> Domestic shorthair
+            </div>
+            <div class="cat-info-block cat-info-block--flex">
+                <strong>Color:</strong> Black 
+            </div>
+            <button class="btn btn-primary">Contact to Adopt Mittens</button>
+        </aside>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.single-image-slider').slick({
+                dots: false, 
+                infinite: true, 
+                speed: 500, 
+                slidesToShow: 1, 
+                slidesToScroll: 1,
+                autoplay: true, 
+                autoplaySpeed: 3000, 
+                pauseOnHover: false, 
+                pauseOnFocus: false 
+            });
+        });
+    </script>
+        <footer>
+            <p>© 2024 Catz on Marz</p>
+        </footer>
+</body>
+</html>
