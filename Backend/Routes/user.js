@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const database = require('../Database/database.js')
+const database = require('../Database/eventDB.js')
 //add password security class required here
 
 const register = async (req, res) =>{ 
