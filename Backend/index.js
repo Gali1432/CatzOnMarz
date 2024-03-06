@@ -7,7 +7,8 @@ const path = require('path');
 
 app.use(express.json());
 app.use(cors({
-    allowedHeaders: "https://**"
+    origin: "http://localhost:3000",
+    allowedHeaders: "http://**"
 }));
 
 app.get('/', (req, res) => {
@@ -26,14 +27,26 @@ app.get('/cart', (req, res) => {
     res.sendFile(getFilePath("Cart/indexCart.html"));
 })
 
+app.get('/appointment', (req, res) => {
+    res.sendFile(getFilePath("Appointment/appointment.html"));
+})
+
+app.get('/reserve', (req, res) => {
+    res.sendFile(getFilePath("Appointment/reservation.html"));
+})
+
 //routes that will be used to get information from the database
 const catRouting = require('./Routes/cat.js'); // Correcting the path
 app.use('/catsonmarz/cat', catRouting);
+
+const eventRouting = require('./Routes/event.js');
+app.use('/catsonmarz/event', eventRouting);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+//helper method for routes
 function getFilePath(relativePath){
     return path.resolve(process.cwd(), relativePath);
 }
