@@ -28,12 +28,35 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/browse">Browse Catz</a>
-              </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/browse">Browse Catz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/appointment">Create Appointment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/order">Order Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">Cart</a>
+                </li>
+            </ul>
+        </div>
+
+                    <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Browse Catz</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../OrderFood/indexFood.html">Order Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Cart/indexCart.html">Cart</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../CatGallery/indexGallery.html">Cat Gallery</a>
                 </li>
@@ -52,6 +75,7 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
+
     </div>
 </nav>
 
@@ -82,6 +106,7 @@
 
     function getEvents(){
         const textOutput = document.getElementById("getOutput");
+
         fetch(apiURL, {
             method: 'GET',
             headers: {
@@ -96,7 +121,10 @@
         })
             .then(data => {
                 console.log(data);
+
+
                 textOutput.textContent = JSON.stringify(data);
+
         })
             .catch(error =>{
                 console.error("Fetch error: ", error);
@@ -238,6 +266,7 @@ document.getElementById("updateReservationForm").addEventListener("submit", func
         return validDateFormat && validTimeFormat && validDateRange && validTimeRange;
     }
     //#endregion
+
 </script>
 
 <!-- bootstrap js -->

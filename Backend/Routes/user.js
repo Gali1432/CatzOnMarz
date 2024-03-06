@@ -12,4 +12,4 @@ const login = async (req, res) => {
 }
 
 //use router.post to implement routes and methods to go with them
-//implement them in html files using a form tag with a action that has the route
+//implement them in html files using a form tag with a action that has the routed
