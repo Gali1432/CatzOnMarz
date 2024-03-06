@@ -39,6 +39,23 @@ app.get('/gallery', (req, res) => {
     res.sendFile(getFilePath("CatGallery/indexGallery.html"));
 })
 
+app.get('/catPics/:catName', (req, res) => {
+    const catName = req.params.catName;
+    const jpgFilePath = `./catPics/${catName}.jpg`;
+
+    res.sendFile(getFilePath(jpgFilePath), (err) => {
+        if (err) {
+            const pngFilePath = `./catPics/${catName}.png`;
+            res.sendFile(getFilePath(pngFilePath), (err) => {
+                if (err) {
+                    res.status(404).send('Image not found');
+                }
+            });
+        }
+    });
+});
+
+
 //routes that will be used to get information from the database
 const catRouting = require('./Routes/cat.js'); // Correcting the path
 app.use('/catsonmarz/cat', catRouting);
