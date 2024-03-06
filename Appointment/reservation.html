@@ -50,16 +50,25 @@
 
 <!-- page content -->
 <div class ="page-content">
-<button onclick="getEvents()">Get events!</button>
-<h4 id="getOutput"></h4>
-<form id="createReservationForm" action="/catsonmarz/event/" method="post">
-    <h2>Create a Reservation!</h2>
-    <input id="title" placeholder="Title" type="text">
-    <input id="date" placeholder="Date YYYY-MM-DD" type="text">
-    <input id="time" placeholder="Time (24hr) HH:MM:SS" type="text">
-    <h4 id="postOutput"></h4>
-    <button type="submit" onclick="createEvent(event)">Create Event</button>
-</form>
+    <button onclick="getEvents()">Get events!</button>
+    <h4 id="getOutput"></h4>
+    <form id="createReservationForm" action="/catsonmarz/event/" method="post">
+        <h2>Create a Reservation!</h2>
+        <input id="title" placeholder="Title" type="text">
+        <input id="date" placeholder="Date YYYY-MM-DD" type="text">
+        <input id="time" placeholder="Time (24hr) HH:MM:SS" type="text">
+        <h4 id="postOutput"></h4>
+        <button type="submit">Create Event</button>
+    </form>
+    <form id="updateReservationForm" action="/catsonmarz/event/" method="patch">
+        <h2>Update a Reservation!</h2>
+        <input id="upOgTitle" placeholder="Title of event being updated" type="text">
+        <input id="upTitle" placeholder="Updated Title" type="text">
+        <input id="upDate" placeholder="Updated Date YYYY-MM-DD" type="text">
+        <input id="upTime" placeholder="Updated Time (24hr) HH:MM:SS" type="text">
+        <button type="submit">Update Event</button>
+    </form>
+</div>
 
 <script>
     const apiURL = "http://localhost:3000/catsonmarz/event/";
@@ -87,20 +96,19 @@
         });
     }
 
-    function createEvent(event){
-        event.preventDefault();
+    function createEvent(){
         console.log("into createEvent");
         const eventTitle = document.getElementById("title").value;
         const eventDate = document.getElementById("date").value;
         const eventTime = document.getElementById("time").value;
         const textOutput = document.getElementById("postOutput");
         if(validateDateTime(eventDate, eventTime) && eventTitle){
-            var date = new Date(eventDate + 'T' + eventTime);
+            var startDate = new Date(eventDate + 'T' + eventTime);
             var endDate = new Date(startDate.getTime() + (60 * 60 * 1000)); //One hour ahead
             const eventData = {
                 title: eventTitle,
-                start: date,
-                end: endDate
+                start: startDate.toISOString().slice(0, -5), // Remove the last 5 characters (including ".000Z"),
+                end: endDate.toISOString().slice(0, -5), // Remove the last 5 characters (including ".000Z")
             }
             console.log(eventData);
             fetch(apiURL, {
@@ -110,17 +118,17 @@
                 },
                 body: JSON.stringify(eventData)
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data)
-                    if(data.success) {
-                        console.log("Event Created");
-                        textOutput.textContent = "Event created successfully!"
-                    } else {
-                        console.log("Event Creation Failed");
-                        textOutput.textContent = "Event creation failed";
-                    }
-                })
+            .then(response => {
+                console.log(response); // Log the response to see its structure
+                // handle the response directly here
+                if (response.ok) {
+                    console.log("Event Created");
+                    textOutput.textContent = "Event created successfully!"
+                } else {
+                    console.log("Event Creation Failed");
+                    textOutput.textContent = "Event creation failed";
+                }
+            })
                 .catch(error => {
                     console.error("Error: ", error);
                 });
@@ -129,6 +137,64 @@
             return;
         }
     }
+
+    function updateEvent(eventId, eventData){
+        console.log("into updateEvent");
+        const upOgTitle = document.getElementById("upOgTitle").value;
+        const upTitle = document.getElementById("upTitle").value;
+        const upDate = document.getElementById("upDate").value;
+        const upTime = document.getElementById("upTime").value;
+        const textOutput = document.getElementById("postOutput");
+
+        if (validateDateTime(upDate, upTime) && upOgTitle && upTitle) {
+            const startDate = new Date(upDate + 'T' + upTime);
+            const endDate = new Date(startDate.getTime() + (60 * 60 * 1000)); //One hour ahead
+
+            const eventData = {
+                eventTitle: upOgTitle,
+                eventData: {
+                    title: upTitle,
+                    start: startDate.toISOString().slice(0, -5),
+                    end: endDate.toISOString().slice(0, -5)
+                }
+            };
+
+            fetch(apiURL, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(eventData)
+            })
+            .then(response => {
+                console.log(response);
+                if (response.ok) {
+                    console.log("Event Updated");
+                    textOutput.textContent = "Event updated successfully!";
+                } else {
+                    console.log("Event Update Failed");
+                    textOutput.textContent = "Event update failed";
+                }
+            })
+            .catch(error => {
+                console.error("Error: ", error);
+            });
+        } else {
+        textOutput.textContent = "Your event date or time formatting is incorrect!";
+        return;
+        }
+    }
+
+//preventing default submission
+document.getElementById("createReservationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+    createEvent();
+});
+
+document.getElementById("updateReservationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+    updateEvent();
+});
 
     //#region helper functions
     // Helper function to validate time format (HH:MM:SS)
@@ -149,6 +215,12 @@
         return hour <= 24 && minute <= 59 && second <= 59;
     }
 
+    // Helper function to validate date format (YYYY-MM-DD)
+    function validateDateFormat(date) {
+    const regex = /^\d{4}-\d{2}-\d{2}$/;
+    return regex.test(date);
+}
+
     // Main validation function
     function validateDateTime(date, time) {
         const validDateFormat = validateDateFormat(date);
@@ -160,7 +232,6 @@
     }
     //#endregion
 </script>
-</div>
 
 <!-- bootstrap js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

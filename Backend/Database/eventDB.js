@@ -30,15 +30,15 @@ async function addEvent(eventData){ // needs a start, end, and title
     return {status: 200, start: eventData.start}
 }
 
-async function updateEvent(eventId, eventData){ // Event data needs an ID
-    eventData.id = eventId; //error checking 
+async function updateEvent(eventTitle, eventData){ // Event data needs an ID
+    eventData.title = eventTitle; //error checking 
     var event = await getEvent(eventData);
     event = event[0];
     return await db.interface("patch", "Event", [event, eventData]);
 }
 
-async function deleteEvent(eventId){
-    await db.interface("delete", "Event", {id: eventId});
+async function deleteEvent(eventTitle){
+    await db.interface("delete", "Event", {title: eventTitle});
     return 200;
 }
 

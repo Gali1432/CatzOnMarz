@@ -29,8 +29,9 @@ const getEvents = async (req, res) => {
 
 const postEvent = async (req, res) => { //needs title, start, and end date
     console.log("into post event");
+    console.log("event data " + req.body);
     try {
-        await database.addEvent(req.body.eventData);
+        await database.addEvent(req.body);
         res.sendStatus(200); // Send response after event is successfully added
     } catch (err) {
         console.error(err);
@@ -38,8 +39,8 @@ const postEvent = async (req, res) => { //needs title, start, and end date
     }
 }
 
-const patchEvent = async (req, res) => { //needs the id of the event being updated along with full event data 
-    database.updateEvent(req.body.eventId, req.body.eventData)
+const patchEvent = async (req, res) => { //needs the title of the event being updated along with full event data 
+    database.updateEvent(req.body.eventTitle, req.body.eventData)
         .then(() => {
             res.sendStatus(200);
         })
@@ -49,7 +50,7 @@ const patchEvent = async (req, res) => { //needs the id of the event being updat
 }
 
 const deleteEvent = async (req, res) => { //needs id of the event being deleted
-    database.deleteEvent(req.body.eventId)
+    database.deleteEvent(req.body.eventTitle)
         .then(() => {
             res.sendStatus(200);
         })
