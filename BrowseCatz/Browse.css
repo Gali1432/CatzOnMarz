@@ -22,6 +22,7 @@ img {
 }
 h1{
   text-align: center;
+  color: #8093f1;
 }
 h3{
   display: flex;
@@ -33,7 +34,6 @@ p{
   text-align: center;
   font-size: 15px;
   color: #342e37;
-
 }
 .container {
   display: flex;
@@ -75,6 +75,7 @@ p{
   padding: 10px;
   box-sizing: border-box; 
   float: left; 
+  color: #a480cf;
 }
 .cat a {
   text-decoration: none;
@@ -87,30 +88,32 @@ p{
   color: #C5C9E8; 
 }
 .navbar-nav .nav-link {
-  margin-right: 20px; /* Increase the margin between the links */
+  margin-right: 20px;
 }
 .navbar-brand,
 .navbar-nav .nav-link {
   color: #fff;
-  font-size: 18px; /* Increase the font size of the links */
-  padding: 15px 0; /* Add padding to the links */
+  font-size: 18px; 
+  padding: 15px 0; 
 }
 .navbar-brand:hover,
 .navbar-nav .nav-link:hover {
-  color: #fff;
-  background-color: transparent; /* Remove background color on hover */
+  color: #a4133c;
+  background-color: transparent;
 }
 .cat-info-block__seperator {
   border-right: 1px solid #fff;
   margin-right: 22px;
   padding-right: 22px;
 }
+.navbar-brand-image{
+  width: 100px;
+}
 .cat-main,
 .cat-aside {
   width: 50%; 
   box-sizing: border-box; 
   margin-left: 110px;
-
 }
 .single-image-slider {
   width: 80%; 
