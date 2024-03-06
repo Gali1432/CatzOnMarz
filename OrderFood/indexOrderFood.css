@@ -42,6 +42,7 @@ h1 {
     text-align: center;
     color: #654321; /* Dark brown */
     text-decoration: none;
+    font-weight: bold;
 }
 
 .Check-out {
@@ -133,17 +134,12 @@ h1 {
 .menu-list {
     list-style: none;
     padding-left: 0;
-    font-size: 20px;
+    font-size: 24px;
 }
-p{
-    text-align: center;
-    font-size: 20px;
-    color: #5c4033;
 
-}
 /* Increased font size for <p> elements */
 .center p {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 /* Adjusted padding for uniform button size */
@@ -151,44 +147,4 @@ p{
     padding: 10px 20px;
 }
 
-.category-text {
-    text-align: center;
-    font-size: 20px;
-    color: #5c4033;
-}
-img {
-    margin-right: 20px;
-  } 
-  h1{
-    text-align: center;
-    color: #8093f1;
-  }
-  .navbar {
-    height: 80px; 
-    background-color: #fb6f92;
-    padding: 0 20px; 
-    color: #C5C9E8; 
-  }
-  .navbar-nav .nav-link {
-    margin-right: 20px;
-  }
-  .navbar-brand,
-  .navbar-nav .nav-link {
-    color: #fff;
-    font-size: 18px; 
-    padding: 15px 0; 
-  }
-  .navbar-brand:hover,
-  .navbar-nav .nav-link:hover {
-    color: #a4133c;
-    background-color: transparent;
-  }
-  .cat-info-block__seperator {
-    border-right: 1px solid #fff;
-    margin-right: 22px;
-    padding-right: 22px;
-  }
-  .navbar-brand-image{
-    width: 100px;
-  }
   

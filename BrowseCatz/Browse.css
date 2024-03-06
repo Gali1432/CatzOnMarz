@@ -32,7 +32,7 @@ h3{
 }
 p{
   text-align: center;
-  font-size: 20px;
+  font-size: 15px;
   color: #342e37;
 }
 .container {
@@ -49,7 +49,6 @@ p{
   margin: 10px 0; 
   width: 70%;
 } 
-
 .lede {
   font-size: 16px;
   line-height: 28px;
