@@ -5,6 +5,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
 
+let publicPath = path.join(__dirname, 'public');
+console.log("PUBLIC PATH:", publicPath);
+app.use(express.static(publicPath));
+
 app.use(express.json());
 app.use(cors({
     origin: "http://localhost:3000",
@@ -38,6 +42,18 @@ app.get('/reserve', (req, res) => {
 app.get('/gallery', (req, res) => {
     res.sendFile(getFilePath("CatGallery/indexGallery.html"));
 })
+
+app.get('/login', (req, res) => {
+    res.sendFile(getFilePath("UserAuth/Register.html"));
+})
+
+app.get('/aceandspade', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/ace and spade.html"));
+})
+
+app.get('/fuzzy', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/fuzzy.html"));
+});
 
 //routes that will be used to get information from the database
 const catRouting = require('./Routes/cat.js'); // Correcting the path
