@@ -77,6 +77,7 @@
     }
 
     const PostAny = async (collection, object) => {
+        console.log("into post any")
         const database = client.db(databaseStr);
         const dbCollection = database.collection(collection);
 
