@@ -12,6 +12,8 @@ This project demonstrates how to set up a basic Node.js backend server using Exp
    ```
    npm install
    npm install express cors bootstrap mongodb fullcalendar
+
+   
    ```
 
 3. **Start Server**: Run the following command to start the backend server:
