@@ -55,6 +55,10 @@ app.get('/fuzzy', (req, res) => {
     res.sendFile(getFilePath("BrowseCatz/fuzzy.html"));
 });
 
+
+
+
+
 app.get('/whiskers', (req, res) => {
     res.sendFile(getFilePath("BrowseCatz/whiskers.html"));
 });
