@@ -73,3 +73,49 @@ form label {
     background-color: #45a049;
   }
   
+img {
+  margin-right: 20px;
+} 
+p{
+  text-align: center;
+  font-size: 15px;
+  color: #342e37;
+}
+h1{
+  text-align: center;
+  color: #8093f1;
+}
+.navbar {
+  height: 80px; 
+  background-color: #fb6f92;
+  padding: 0 20px; 
+  color: #C5C9E8; 
+}
+.navbar-nav .nav-link {
+  margin-right: 20px;
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 18px; 
+  padding: 15px 0; 
+}
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+  color: #a4133c;
+  background-color: transparent;
+}
+.cat-info-block__seperator {
+  border-right: 1px solid #fff;
+  margin-right: 22px;
+  padding-right: 22px;
+}
+.navbar-brand-image{
+  width: 100px;
+}
+.cat-main,
+.cat-aside {
+  width: 50%; 
+  box-sizing: border-box; 
+  margin-left: 110px;
+}

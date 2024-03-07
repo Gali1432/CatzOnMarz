@@ -4,35 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oliver - Cat Adoption</title>
-
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-    
-  <header>
-    <h1>Oliver</h1>
-  </header>
-  <main>
-    <div class="cat-profile">
-        <img src="../catPics\oliver.jpg" alt="Oliver">
-        <div class="description">
-            <h2>About Oliver</h2>
-            <p>
-                Oliver is a 4-year-old cat with a heart as big as his playful personality. Affectionate and sociable, Oliver adores the 
-                company of both people and other cats. Whether engaging in spirited play sessions or lounging in the sun, Oliver's friendly
-                disposition and gentle nature make him a beloved companion for cat lovers of all ages.
-            </p>
-            <h3>Adoption Details</h3>
-            <ul>
-                <li>Age: 4 years</li>
-                <li>Breed: Domestic shorthair</li>
-                <li>Color: Calico</li>
-            </ul>
-            <button>Contact us for adoption</button>
-        </div>
-    </div>
-  </main>
-
     <link href="Browse.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -48,24 +19,30 @@
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Browse Catz</a>
+                        <a class="nav-link" href="/browse">Browse Catz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../OrderFood/indexFood.html">Order Food</a>
+                        <a class="nav-link" href="/order">Order Food</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Cart/indexCart.html">Cart</a>
+                        <a class="nav-link" href="/cart">Cart</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../CatGallery/indexGallery.html">Cat Gallery</a>
+                        <a class="nav-link" href="/gallery">Cat Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/appointment">Book an Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
-    </nav>
+      </nav>
     
     <div class="cat-grid">
         <div class="cat-main">
@@ -91,7 +68,7 @@
             </div>
         </div>
         <aside class="cat-aside">
-            <a class="nav-link" href="../BrowseCatz/indexBrowse.html">Back to the Kitties</a>
+            <a class="nav-link" href="/browse">Back to the Kitties</a>
             <div class="cat-info-block cat-info-block--flex">
                 <span class="cat-info-block__title cat-info-block__seperator">
                     <strong>Age:</strong> 4</span>
@@ -104,7 +81,7 @@
             <div class="cat-info-block cat-info-block--flex">
                 <strong>Color:</strong> Calico
             </div>
-            <button class="btn btn-primary">Contact to Adopt Oliver</button>
+            <a class="btn-link" href="/adopt">Contact to Adopt Oliver</a>
         </aside>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
