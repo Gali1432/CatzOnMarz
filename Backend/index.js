@@ -55,6 +55,10 @@ app.get('/fuzzy', (req, res) => {
     res.sendFile(getFilePath("BrowseCatz/fuzzy.html"));
 });
 
+
+
+
+
 //routes that will be used to get information from the database
 const catRouting = require('./Routes/cat.js'); // Correcting the path
 app.use('/catsonmarz/cat', catRouting);
