@@ -34,6 +34,10 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/appointment">Book an Appointment</a>
+                    
+                    <li id="loginStatus" style="float: right;"></li>
+ 
+
                 </ul>
             </div>
         </div>
@@ -51,7 +55,7 @@
         <button class="btn btn-outline-success" type="button" onclick="search()">Search</button>
     </div>
     <div class="cat">
-        <a href="fuzzy.html">
+        <a href="../BrowseCatz/fuzzy.html">
             <h2>Fuzzy</h2>
             <img src="../catPics\Fuzzy3.jpg" alt="Fuzzy">
         </a>
@@ -159,8 +163,32 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
+    <script>
+        // Check if the user is logged in (You would typically do this with server-side session management)
+        var isLoggedIn = false; // Assuming the user is not logged in initially
+        
+        // Update the navigation bar based on login status
+        function updateNavBar() {
+          var loginStatusElement = document.getElementById('loginStatus');
+          if (isLoggedIn) {
+            // Display the username
+            loginStatusElement.textContent = 'Welcome, User'; // Replace 'User' with the actual username
+          } else {
+            // Display the login button
+            loginStatusElement.innerHTML = '<a href="../UserAuth/login.html">Login</a>';
+          }
+        }
+        
+        // Call the function to initially set up the navigation bar
+        updateNavBar();
+        </script>
+    
+    
     <footer>
         <p>© 2024 Catz on Marz</p>
     </footer>
+    
 </body>
 </html>
