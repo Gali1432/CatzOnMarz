@@ -47,8 +47,8 @@ app.get('/login', (req, res) => {
     res.sendFile(getFilePath("UserAuth/Register.html"));
 })
 
-app.get('/aceandspade', (req, res) => {
-    res.sendFile(getFilePath("BrowseCatz/ace and spade.html"));
+app.get('/adopt', (req, res) => {
+    res.sendFile(getFilePath("AdoptCat/adoption-page.html"));
 })
 
 app.get('/fuzzy', (req, res) => {
@@ -59,8 +59,64 @@ app.get('/fuzzy', (req, res) => {
 
 
 
-//routes that will be used to get information from the database
-const catRouting = require('./Routes/cat.js'); // Correcting the path
+app.get('/whiskers', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/whiskers.html"));
+});
+
+app.get('/oliver', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/oliver.html"));
+});
+
+app.get('/aceandspade', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/ace and spade.html"));
+});
+
+app.get('/mittens', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/mittens.html"));
+});
+
+app.get('/tinker', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/tinker.html"));
+});
+
+app.get('/chips', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/chips.html"));
+});
+
+app.get('/salem', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/salem.html"));
+});
+
+app.get('/biscuit', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/biscuit.html"));
+});
+
+app.get('/willow', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/willow.html"));
+});
+
+app.get('/wizard', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/wizard.html"));
+});
+
+app.get('/nyx', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/nyx.html"));
+});
+
+app.get('/ace', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/ace.html"));
+});
+
+app.get('/lily', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/lily.html"));
+});
+
+app.get('/jasper', (req, res) => {
+    res.sendFile(getFilePath("BrowseCatz/jasper.html"));
+});
+
+
+const catRouting = require('./Routes/cat.js'); 
 app.use('/catsonmarz/cat', catRouting);
 
 const eventRouting = require('./Routes/event.js');
